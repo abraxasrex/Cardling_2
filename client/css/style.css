@@ -1,0 +1,170 @@
+
+/*46B29D
+F0CA4D
+E37B40*/
+
+html {
+  overflow-y:scroll;
+}
+body{
+  min-height: 1000px;
+  font-family: 'Varela Round', sans-serif;
+  background-color: Gainsboro;
+}
+.container{
+  margin: 20px 20px;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.card-list{
+  float: left;
+  padding-left: 125px;
+}
+.front-flip {
+  transform: rotate3d(0, 1, 0, 360deg);
+}
+
+.back-flip {
+  transform: rotate3d(0, 1, 0, 0deg);
+}
+
+.flashcard {
+  margin: 10px;
+  padding: 5px;
+  border: 2px inset  #324D5C;
+  transition: all 1s;
+  text-align: center;
+  height: 225px;
+  line-height: 225px;
+  background-size: cover;
+  background-position:top left;
+  overflow: hidden;
+  padding:0px;
+}
+.flashcard button{
+  border-radius: 0;
+}
+
+ .flashcard p {
+   padding: 0;
+   margin: 0;
+   color: white;
+   vertical-align: middle;
+   font-size: 36px;
+   z-index: 1;
+   -webkit-user-select: none;  /* Chrome all / Safari all */
+   -moz-user-select: none;     /* Firefox all */
+   -ms-user-select: none;      /* IE 10+ */
+   user-select: none;
+ }
+
+ .card-form {
+   float: right;
+ }
+
+ .flashcard .delete{
+   color: black;
+   float: left;
+ }
+
+ .flashcard .edit {
+   float: left;
+ }
+
+.card-control {
+  z-index: 1;
+}
+.card-video {
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-video > video {
+  width: 100%;
+    background-color: #E37B40;
+}
+
+aside h4{
+  text-align:center;
+}
+
+.navigate ul{
+  list-style-type: none;
+  font-size: 24px;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: center;
+}
+
+.navigate ul li{
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  color: white;
+  background-color:#324D5C;
+}
+.instructions, .navigate {
+  border-style: solid;
+  border-width: thin;
+  margin: 10px auto;
+}
+
+aside{
+  /*border-style: solid;
+  border-width: thin;*/
+}
+.jumbotron h1{
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Roboto Condensed', sans-serif;
+  border-bottom: 1px solid black;
+  font-size: 84px;
+  color: white;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+     -2px 2px 0 #000,
+      2px 2px 0 #000;
+}
+.jumbotron{
+  background-color: #DE5B49;
+  border: 20px inset #324D5C;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+
+fieldset {
+display: inline-block;
+text-align: center;
+}
+
+form .input-lg {
+width: 70%;
+display: flex;
+justify-content: center;
+}
+
+form select {
+width: 25%;
+}
+
+input{
+  width: 100%;
+}
