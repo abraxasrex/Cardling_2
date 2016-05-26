@@ -4,16 +4,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
-var mongoose = require('mongoose');
 var hash = require('bcrypt-nodejs');
+var methodOverride = require('method-override');
+var mongoose = require('mongoose');
 var path = require('path');
 var passport = require('passport');
+
 var localStrategy = require('passport-local' ).Strategy;
-var methodOverride = require('method-override');
+var app = express();
+var User = require('./models/user.js');
 
-// mongoose
-//mongoose.connect('mongodb://localhost/cardling');
-
+//db connection
 mongoose.connect('mongodb://localhost/cards', function(err, db){
   if(!err) {
     console.log('mongoose is connected');
@@ -22,16 +23,7 @@ mongoose.connect('mongodb://localhost/cards', function(err, db){
   }
 });
 
-// user schema/model
-var User = require('./models/user.js');
-
-// create instance of express
-var app = express();
-
-// require routes
-var routes = require('./routes/api.js');
- require('./routes/routes.js')(app);
-// define middleware
+// middleware
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -51,14 +43,17 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// routes
-app.use('/user/', routes);
+// routing
+var view_routes = require('./routes/view-routes.js');
+require('./routes/card-routes.js')(app);
+
+app.use('/user/', view_routes);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 
-// error hndlers
+// error handling
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

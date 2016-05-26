@@ -1,4 +1,4 @@
-angular.module('myApp').controller('loginController',
+angular.module('cardLing').controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -28,7 +28,7 @@ angular.module('myApp').controller('loginController',
 
 }]);
 
-angular.module('myApp').controller('logoutController',
+angular.module('cardLing').controller('mainController',
   ['$scope', '$location', 'AuthService', '$http',
   function ($scope, $location, AuthService, $http) {
 
@@ -180,7 +180,7 @@ function toggleForm(){
 
 }]);
 
-angular.module('myApp').controller('registerController',
+angular.module('cardLing').controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
