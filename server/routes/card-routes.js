@@ -32,17 +32,12 @@ function getMatchingCards(req, res){
 }
 
 function makeCard(req, res, imagePath) {
-  var hasVideo;
-  if(imagePath.slice(imagePath.indexOf(imagePath.length - 1)) == '4') {
-    hasVideo = true;
-  } else {
-    hasVideo = false;
-  }
   Card.create({
     original: req.body.original.trim(),
     translated: req.body.translated.trim(),
     src: imagePath,
-    hasVideo: hasVideo
+    cardSet: req.body.cardset,
+    owner: req.body.owner
   }, function(err, card) {
     if(err) {
       res.send('Card creation err: ', err);
@@ -102,9 +97,9 @@ module.exports = function (app) {
     getMatchingCards(req, res);
   });
 
-  // app.get('/api/cards/:owner', function(req, res){
-  //   getOneCard(req, res);
-  // });
+  app.get('/api/cards/:owner', function(req, res){
+    getUserCards(req, res);
+  });
 
   app.get('/api/cards/:cardSet', function(req, res) {
     getCardSet(req, res);
@@ -128,9 +123,5 @@ module.exports = function (app) {
         }
     });
   });
-
-  // app.get('*', function (req, res) {
-  //   res.sendfile('./public/index.html');
-  // });
 
 };

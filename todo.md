@@ -1,9 +1,9 @@
 
 ## Todo
 
-1.  DB/passport auth  
+1.  MVP
 
-- edit: v01 change media storage to user managed url entry  
+- ~edit: v01 change media storage to user managed url entry~  
 
 - my view vs. home view  
 
@@ -21,29 +21,21 @@
 - mongolab  
 
 
-4. Stretch goals    
+4. Stretch goals  1
 
-- color card option  
+- SASS  
 
 - third party auth w' passport  
 
-- separate views  for different
+- separate views for different
 
 - client-side input validation UX  
 
 
-4.  professional standards:  
+4.  stretch goals 2:  
 
-- separate controllers  
-
-- localize dependencies  
-
-- write tests  
-
-5.  
+- write tests    
 
 - ionic packaging
 
-- get mobile user media
-
-- mobile user image display
+- get mobile user media - pictures  

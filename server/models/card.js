@@ -13,7 +13,7 @@ var cardSchema = new Schema({
   },
   src: {
     type: String,
-    default: '../public/img/fishjpg'
+    default: 'img.jpg'
   },
   owner:{
     type:String,
