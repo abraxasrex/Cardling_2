@@ -120,7 +120,8 @@ aside{
   /*border-style: solid;
   border-width: thin;*/
 }
-.jumbotron h1{
+
+.jumbotron h1 {
   width: 50%;
   margin: 0 auto;
   font-family: 'Roboto Condensed', sans-serif;
