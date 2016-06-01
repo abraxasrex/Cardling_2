@@ -1,8 +1,23 @@
-<h1>Yo!</h1>
 
-<div >
-  <a ng-click='logout()' class="btn btn-default">Logout</a>
-</div>
+<nav class="navbar navbar-default">
+  <div class="navbar-header" ng-click="getAllMyCards()">
+    Cardling
+  </div>
+  <ul class="nav navbar-nav">
+    <li ng-click="getMyCards()">my sets</li>
+    <li>New Set</li>
+    <li> About </li>
+    <li ng-click="getCardSet()">find set
+      <label for="set-search"></label>
+      <input name="set-search" type="text" ng-model="formData.targetSetRoute">
+  </li>
+  <li ng-click="getMatchingCards()">find by term
+    <label for="card-search"></label>
+    <input name="card-search" type="text" ng-model="formData.targetCard">
+</li>
+    <a ng-click='logout()'><li>Logout</li></a>
+  </ul>
+</nav>
 
 <aside id="card-form" class="col-md-3 card-form">
   <form>
@@ -31,7 +46,7 @@
       <input type="text" class="form-control input-lg text-center" placeholder="set membership" ng-model="formData.set">
     <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
   </form>
-  <div class="instructions">
+  <!-- <div class="instructions">
     <h4>Instructions</h4>
       <ul>
         <li>use the form to add new cards to a set.</li>
@@ -39,22 +54,13 @@
         <li>navigate through sets below.</li>
         <li> all sets are currently public.</li>
       </ul>
-  </div>
-  <nav class="navigate">
+  </div> -->
+  <!-- <nav class="navigate">
     <h4>Jump to:</h4>
     <ul>
-      <li ng-click="getAllCards()">all sets</li>
-      <li ng-click="getMyCards()">my sets</li>
-      <li ng-click="getCardSet()">find set
-        <label for="set-search"></label>
-        <input name="set-search" type="text" ng-model="formData.targetSetRoute">
-    </li>
-    <li ng-click="getMatchingCards()">find by term
-      <label for="card-search"></label>
-      <input name="card-search" type="text" ng-model="formData.targetCard">
-  </li>
+
     </ul>
-  </nav>
+  </nav> -->
 </aside>
 <div id="card-list" class="card-list col-md-9">
   <div class="flashcard col-md-3" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "{{card.src}}">

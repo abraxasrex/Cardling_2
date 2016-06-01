@@ -1,12 +1,12 @@
-<div class="col-md-12">
-  <div class="jumbotron text-center col-md-9">
+<div class="col-md-8 col-md-offset-2">
+  <div class="jumbotron text-center col-md-12">
       <h1> Cardling: </h1>
       <h4> acquiring vocabulary through self-generated content. </h4>
       <!-- <h4> Cards in this Set: <span class="label label-info">{{ cards.length }}</span></h4> -->
 </div>
-  <h1>Register</h1>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
-  <form class="form" ng-submit="register()">
+  <form class="form login-form" ng-submit="register()">
+      <h1>Register</h1>
     <div class="form-group">
       <label>Username</label>
       <input type="text" class="form-control" name="username" ng-model="registerForm.username" required>
@@ -16,7 +16,8 @@
         <input type="password" class="form-control" name="password" ng-model="registerForm.password" required>
       </div>
       <div>
-        <button type="submit" class="btn btn-default" ng-disabled="disabled">Register</button>
+        <button type="submit login-submit" class="btn btn-default" ng-disabled="disabled">Register</button>
       </div>
+      <p> I am a returning user, take me to <a href="#/login">login</a> instead. </p>
   </form>
 </div>

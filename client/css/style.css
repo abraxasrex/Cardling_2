@@ -139,6 +139,31 @@ aside{
   border: 20px inset #324D5C;
 }
 
+nav, nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar-default{
+    background-color: rgba(0,0,0,0);
+}
+nav ul{
+  width: 75%;
+}
+
+.navbar-header, .navbar-nav li{
+  background-color: #DE5B49;
+  border: 5px solid #324D5C;
+  height: 100%;
+  font-size: 24px;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+.navbar-header {
+  height: 86px;
+  width: 25%;
+}
+
 form {
   height: 100%;
   display: flex;
@@ -151,19 +176,27 @@ form {
   border-color: black;
 }
 
+.login-form label{
+  text-align: center;
+  width: 100%;
+}
+
 fieldset {
-display: inline-block;
-text-align: center;
+  display: inline-block;
+  text-align: center;
 }
 
 form .input-lg {
-width: 70%;
-display: flex;
-justify-content: center;
+  width: 70%;
+  display: flex;
+  justify-content: center;
 }
 
+.login-submit{
+  margin-bottom: 10px;
+}
 form select {
-width: 25%;
+  width: 25%;
 }
 
 input{

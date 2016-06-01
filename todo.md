@@ -1,9 +1,8 @@
 
+
 ## Todo
 
 1.  MVP
-
-- ~edit: v01 change media storage to user managed url entry~  
 
 - my view vs. home view  
 
