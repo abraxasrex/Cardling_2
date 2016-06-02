@@ -7,12 +7,12 @@
     <li ng-click="getMyCards()">my sets</li>
     <li>New Set</li>
     <li> About </li>
-    <li ng-click="getCardSet()">find set
-      <label for="set-search"></label>
+    <li>find set
+      <label for="set-search" ng-click="getCardSet()"></label>
       <input name="set-search" type="text" ng-model="formData.targetSetRoute">
   </li>
-  <li ng-click="getMatchingCards()">find by term
-    <label for="card-search"></label>
+  <li >find by term
+    <label for="card-search" ng-click="getMatchingCards()"></label>
     <input name="card-search" type="text" ng-model="formData.targetCard">
 </li>
     <a ng-click='logout()'><li>Logout</li></a>
@@ -68,7 +68,7 @@
       <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
       <button class="btn btn-md btn-default edit" ng-click="editCard(card)">Edit</button>
     </div>
-      <p> {{ card.text}} </p>
+      <p> <span> {{ card.text}} </span></p>
       <!-- <video class = "card-video" src="./vid/{{card.src}}" autoplay loop muted !controls></video> -->
   </div>
 </div>

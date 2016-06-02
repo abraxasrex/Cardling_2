@@ -42,6 +42,7 @@ body{
   background-position:top left;
   overflow: hidden;
   padding:0px;
+
 }
 .flashcard button{
   border-radius: 0;
@@ -50,16 +51,21 @@ body{
  .flashcard p {
    padding: 0;
    margin: 0;
-   color: white;
+   color: black;
    vertical-align: middle;
-   font-size: 36px;
+   text-align: left;
+   font-size: 32px;
    z-index: 1;
    -webkit-user-select: none;  /* Chrome all / Safari all */
    -moz-user-select: none;     /* Firefox all */
    -ms-user-select: none;      /* IE 10+ */
    user-select: none;
  }
-
+.flashcard p span{
+  background-color: white;
+  border-style: solid;
+  text-align: left;
+}
  .card-form {
    float: right;
  }
