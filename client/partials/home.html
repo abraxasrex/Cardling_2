@@ -4,15 +4,14 @@
     Cardling
   </div>
   <ul class="nav navbar-nav">
-    <li ng-click="getMyCards()">my sets</li>
-    <li>New Set</li>
-    <li> About </li>
-    <li>find set
-      <label for="set-search" ng-click="getCardSet()"></label>
+    <li ng-click="getAllCards()">all cards</li>
+    <li ng-click="getMyCards()">my cards</li>
+    <li>
+      <label for="set-search" ng-click="getCardSet()" >find set</label>
       <input name="set-search" type="text" ng-model="formData.targetSetRoute">
   </li>
-  <li >find by term
-    <label for="card-search" ng-click="getMatchingCards()"></label>
+  <li >
+    <label for="card-search" ng-click="getMatchingCards()">find by term</label>
     <input name="card-search" type="text" ng-model="formData.targetCard">
 </li>
     <a ng-click='logout()'><li>Logout</li></a>
@@ -43,7 +42,7 @@
     <fieldset>
         <label> set membership:</label>
     </fieldset>
-      <input type="text" class="form-control input-lg text-center" placeholder="set membership" ng-model="formData.set">
+      <input type="text" class="form-control input-lg text-center" placeholder="set membership" ng-model="formData.cardSet">
     <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
   </form>
   <!-- <div class="instructions">

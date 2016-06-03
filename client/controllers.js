@@ -4,19 +4,17 @@ angular.module('cardLing').controller('loginController',
 
     $scope.login = function () {
 
-      // initial values
       $scope.error = false;
       $scope.disabled = true;
 
-      // call login from service
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
-        // handle success
+
         .then(function () {
           $location.path('/');
           $scope.disabled = false;
           $scope.loginForm = {};
         })
-        // handle error
+
         .catch(function () {
           $scope.error = true;
           $scope.errorMessage = "Invalid username and/or password";
@@ -45,6 +43,8 @@ angular.module('cardLing').controller('mainController',
   $scope.formData = {};
   $scope.submitText = "Add card";
   $scope.formData.edit = null;
+  //$scope.formData.owner = AuthService.getCurrentUser();
+  $scope.formData.user = 'loogy';
 
 ///helper func declarations
   function initCards(){
@@ -57,32 +57,29 @@ angular.module('cardLing').controller('mainController',
      }
   }
 
-
-/// gets and posts //
+/// the R in CRUD //
 $scope.getAllCards = function(){
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
-    console.log(data);
+    console.log($scope.cards);
   }).error(function(data) {
     console.log('Get Error: ' + data);
   });
 }
 
-// $scope.getMyCards = function(){
-//   $http.get('api/cards/' + $scope.formData.targetSetRoute).success(function(data){
-//     $scope.cards = data;
-//   //  getAllCards();
-//     initCards();
-//   }).error(function(data){
-//     console.log('set view redirect err:', data);
-//   });
-// }
+$scope.getMyCards = function(){
+  $http.get('api/cards/owner/' + $scope.formData.owner).success(function(data){
+    $scope.cards = data;
+    initCards();
+  }).error(function(data){
+    console.log('my cards view redirect err:', data);
+  });
+}
 
 $scope.getMatchingCards = function(){
-  $http.get('api/cards/' + $scope.formData.targetCard).success(function(data){
+  $http.get('api/cards/term/' + $scope.formData.targetCard).success(function(data){
     $scope.cards = data;
-  //  getAllCards();
     initCards();
   }).error(function(data){
     console.log('set view redirect err:', data);
@@ -90,21 +87,20 @@ $scope.getMatchingCards = function(){
 }
 
   $scope.getCardSet = function(){
-    $http.get('api/cards/' + $scope.formData.targetSetRoute).success(function(data){
+    $http.get('api/cards/cardSet/' + $scope.formData.targetSetRoute).success(function(data){
       $scope.cards = data;
-    //  getAllCards();
       initCards();
     }).error(function(data){
       console.log('set view redirect err:', data);
     });
   }
 
+/// the C U and D in CRUD
   $scope.submitCard = function() {
     $http.post('/api/cards', $scope.formData).success(function(data) {
       $scope.formData = {};
       $scope.cards = data;
       initCards();
-    //  console.log('card ', data);
     }).error(function(data) {
       console.log('Create Error: ' + data);
     });
@@ -129,7 +125,6 @@ $scope.getMatchingCards = function(){
       $scope.formData.src = "";
     }
    else {
-     //console.log('card to edit is ', card)
      $scope.formData.original = card.original;
      $scope.formData.translated = card.translated;
      $scope.formData.src = card.src;
@@ -140,11 +135,7 @@ $scope.getMatchingCards = function(){
    initCards();
  };
 
-// below here: separate into UX controller
-
-function toggleForm(){
-
-}
+// UI/UX controller
 
   $scope.flip = function(card, id) {
     var flipper = document.getElementsByClassName(id)[0];
@@ -177,7 +168,6 @@ function toggleForm(){
   // });
 
   $scope.getAllCards();
-
 }]);
 
 angular.module('cardLing').controller('registerController',
@@ -210,6 +200,7 @@ angular.module('cardLing').controller('registerController',
 
 }]);
 
+// directives
 angular.module('cardLing')
 .directive('backImg', function(){
     return function(scope, element, attrs){

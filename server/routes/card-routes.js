@@ -1,43 +1,14 @@
 var Card = require('../models/card.js');
 var path = require('path');
 
-function getCards(res) {
-  Card.find(function (err, cards) {
-    if(err) {
-      res.send('getcards in routes.js err', err);
-    } else {
-      res.json(cards);
-    }
-  });
-}
-
-function getCardSet(req, res){
-  Card.find({cardSet:req.params.cardSet},function(err,cards){
-    if(err) {
-      res.send('getcards in routes.js err', err);
-    } else {
-      res.json(cards);
-    }
-  });
-}
-
-function getMatchingCards(req, res){
-  Card.find({$or: [{original:req.params.term},{translated:req.params.term}]},function(err,cards){
-    if(err) {
-      res.send('getcards in routes.js err', err);
-    } else {
-      res.json(cards);
-    }
-  });
-}
-
+/// Create, edit, and delete
 function makeCard(req, res, imagePath) {
   Card.create({
     original: req.body.original.trim(),
     translated: req.body.translated.trim(),
+    owner: req.body.owner,
     src: imagePath,
-    cardSet: req.body.cardset,
-    owner: req.body.owner
+    cardSet: req.body.cardSet
   }, function(err, card) {
     if(err) {
       res.send('Card creation err: ', err);
@@ -77,8 +48,9 @@ function removeCard(req, res) {
   });
 }
 
-function getUserCards(req, res){
-  Card.find({ owner:req.params.owner },function(err,cards){
+// Return Selected
+function getCards(res) {
+  Card.find(function (err, cards) {
     if(err) {
       res.send('getcards in routes.js err', err);
     } else {
@@ -87,22 +59,38 @@ function getUserCards(req, res){
   });
 }
 
+function getMatchingCards(req, res){
+  // if(req.params.field == 'term'){
+  //   Card.find({$or: [{original:req.params.val},{translated:req.params.val}]},function(err,cards){
+  //     if(err) {
+  //       res.send('getcards in routes.js err', err);
+  //     } else {
+  //       res.json(cards);
+  //     }
+  //   });
+  // }else{
+    var customReq = {};
+    customReq[req.params.field] = req.params.val;
+    Card.find(customReq, function(err, cards){
+      if(err){
+        res.send('getcards in routes.js err', err);
+      }else{
+        res.json(cards);
+        console.log(req.params.field, ' ', req.params.val);
+      }
+    });
+  // }
+
+}
+
 module.exports = function (app) {
 
   app.get('/api/cards', function(req, res) {
     getCards(res);
   });
 
-  app.get('/api/cards/:term', function(req, res){
-    getMatchingCards(req, res);
-  });
-
-  app.get('/api/cards/:owner', function(req, res){
-    getUserCards(req, res);
-  });
-
-  app.get('/api/cards/:cardSet', function(req, res) {
-    getCardSet(req, res);
+  app.get('/api/cards/:field/:val', function(req, res){
+     getMatchingCards(req, res);
   });
 
   app.delete('/api/cards/:card_id', function(req, res) {

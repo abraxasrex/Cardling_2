@@ -4,36 +4,43 @@
 
 1.  MVP
 
-- my view vs. home view  
-
-- set separated views  
-
-- add links/ about view  
+- see my cards  
 
 - reintegrate languages.json  
 
+- general UI/UX fixes  
 
-3.  Deployment  
+
+2.  Deployment  
 
 - deployment
 
 - mongolab  
 
 
-4. Stretch goals  1
+3. Stretch Goals 1
+
+- add about me page
+
+- DRY: components  
+
+- DRY: search functionality  
+
+- nested lists by set  
+
+- shareable routes to one's set  
+
+
+4. Stretch goals  2
 
 - SASS  
 
-- third party auth w' passport  
-
-- separate views for different
+- third party auth  
 
 - client-side input validation UX  
 
 
-4.  stretch goals 2:  
-
-- write tests    
+4.  stretch goals 3:  
 
 - ionic packaging
 

@@ -20,8 +20,7 @@ var cardSchema = new Schema({
     default:'Ulysses'
   },
   cardSet:{
-    type:String,
-    default:'Spanish to English set'
+    type:String
   }
 });
 

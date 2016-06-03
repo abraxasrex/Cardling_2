@@ -163,6 +163,12 @@ nav ul{
   font-size: 24px;
   padding: 0 auto;
   margin: 0 auto;
+  text-align: center;
+}
+
+nav span{
+  line-height:100%;
+  vertical-align: middle;
 }
 
 .navbar-header {
@@ -182,10 +188,7 @@ form {
   border-color: black;
 }
 
-.login-form label{
-  text-align: center;
-  width: 100%;
-}
+
 
 fieldset {
   display: inline-block;
@@ -207,4 +210,24 @@ form select {
 
 input{
   width: 100%;
+}
+
+.edit-window{
+  position: absolute;
+  z-index: 5;
+  top:0px;
+  left:0px;
+  max-width:250px;
+  max-height: 350px;
+}
+
+.editable-card{
+  max-width:250px;
+  max-height: 350px;
+}
+
+.nav label{
+  text-align: center;
+  width: 100%;
+  height:25%;
 }
