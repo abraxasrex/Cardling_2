@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-
 var User = require('../models/user.js');
 
+// auth router POSTS
 router.post('/register', function(req, res) {
   User.register(new User({ username: req.body.username }),
     req.body.password, function(err, account) {
@@ -43,6 +43,7 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+// auth router GETs
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({
@@ -60,5 +61,15 @@ router.get('/status', function(req, res) {
     status: true
   });
 });
+
+router.get('/currentUser', function(req, res) {
+            if (req.user === undefined) {
+                res.json({});
+                console.log('user undefined!')
+            } else {
+                res.json(req.user.username);
+                console.log('username:', req.user.username);
+            }
+        });
 
 module.exports = router;

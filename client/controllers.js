@@ -31,20 +31,21 @@ angular.module('cardLing').controller('mainController',
   function ($scope, $location, AuthService, $http) {
 
     $scope.logout = function () {
-
-      // call logout from service
       AuthService.logout()
         .then(function () {
           $location.path('/login');
         });
-
     };
-
+  //init form data
   $scope.formData = {};
-  $scope.submitText = "Add card";
   $scope.formData.edit = null;
-  //$scope.formData.owner = AuthService.getCurrentUser();
-  $scope.formData.user = 'loogy';
+  //toggle new/edit text
+  $scope.submitText = "Add card";
+
+  $http.get("/user/currentUser").success(function(data) {
+      console.log('Username: ' + data);
+      $scope.formData.owner = data;
+  });
 
 ///helper func declarations
   function initCards(){
@@ -62,7 +63,6 @@ $scope.getAllCards = function(){
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
-    console.log($scope.cards);
   }).error(function(data) {
     console.log('Get Error: ' + data);
   });

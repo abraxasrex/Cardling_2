@@ -60,15 +60,15 @@ function getCards(res) {
 }
 
 function getMatchingCards(req, res){
-  // if(req.params.field == 'term'){
-  //   Card.find({$or: [{original:req.params.val},{translated:req.params.val}]},function(err,cards){
-  //     if(err) {
-  //       res.send('getcards in routes.js err', err);
-  //     } else {
-  //       res.json(cards);
-  //     }
-  //   });
-  // }else{
+  if(req.params.field == 'term'){
+    Card.find({$or: [{original:req.params.val},{translated:req.params.val}]},function(err,cards){
+      if(err) {
+        res.send('getcards in routes.js err', err);
+      } else {
+        res.json(cards);
+      }
+    });
+  }else{
     var customReq = {};
     customReq[req.params.field] = req.params.val;
     Card.find(customReq, function(err, cards){
@@ -79,7 +79,7 @@ function getMatchingCards(req, res){
         console.log(req.params.field, ' ', req.params.val);
       }
     });
-  // }
+  }
 
 }
 

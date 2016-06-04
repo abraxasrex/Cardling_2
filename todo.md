@@ -4,8 +4,6 @@
 
 1.  MVP
 
-- see my cards  
-
 - reintegrate languages.json  
 
 - general UI/UX fixes  
