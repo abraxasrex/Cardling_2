@@ -46,7 +46,17 @@ angular.module('cardLing').controller('mainController',
       console.log('Username: ' + data);
       $scope.formData.owner = data;
   });
+// get language.json
+$scope.langChoices = [];
+$scope.eng = 'English       (English)';
 
+$http.get('languages.json').success(function(languages) {
+  for (item in languages.lang) {
+    $scope.langChoices.push(languages.lang[item][0]);
+  }
+}).error( function(err) {
+  console.log('getting lang json err: ', err);
+});
 ///helper func declarations
   function initCards(){
      if(!!$scope.cards) {
