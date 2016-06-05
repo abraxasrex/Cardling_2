@@ -13,7 +13,7 @@ var cardSchema = new Schema({
   },
   src: {
     type: String,
-    default: 'img.jpg'
+    default: 'https://media.giphy.com/media/12kfrrybSQPUis/giphy.gif'
   },
   owner:{
     type:String,

@@ -2,9 +2,7 @@
 
 ## Todo
 
-1.  MVP
-
-- reintegrate languages.json  
+1.  MVP  
 
 - general UI/UX fixes  
 
@@ -20,13 +18,13 @@
 
 - add about me page
 
+- languages.json in server
+
 - DRY: components  
 
 - DRY: search functionality  
 
 - nested lists by set  
-
-- shareable routes to one's set  
 
 
 4. Stretch goals  2
@@ -36,6 +34,8 @@
 - third party auth  
 
 - client-side input validation UX  
+
+- shareable routes to one's set  
 
 
 4.  stretch goals 3:  
