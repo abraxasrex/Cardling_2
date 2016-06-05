@@ -1,73 +1,59 @@
 
-<nav class="navbar navbar-default">
-  <div class="navbar-header" ng-click="getAllMyCards()">
-    Cardling
+<!-- navigation -->
+<nav class="navbar col-md-12">
+  <div class="navbar-header col-md-4" ng-click="getAllMyCards()">
+    <h1>Cardling</h1>
   </div>
-  <ul class="nav navbar-nav">
-    <li ng-click="getAllCards()">all cards</li>
-    <li ng-click="getMyCards()">my cards</li>
-    <li>
+  <ul class="nav navbar-nav col-md-8">
+    <li class="col-md-2" ng-click="getAllCards()">all cards</li>
+    <li class="col-md-2" ng-click="getMyCards()">my cards</li>
+    <li class="col-md-4 nav-search">
       <label for="set-search" ng-click="getCardSet()" >find set</label>
       <input name="set-search" type="text" ng-model="formData.targetSetRoute">
   </li>
-  <li >
+  <li class="col-md-4 nav-search">
     <label for="card-search" ng-click="getMatchingCards()">find by term</label>
     <input name="card-search" type="text" ng-model="formData.targetCard">
-</li>
-    <a ng-click='logout()'><li>Logout</li></a>
+  </li>
+      <a ng-click='logout()'><li>Logout</li></a>
   </ul>
 </nav>
 
-<aside id="card-form" class="col-md-3 card-form">
+<!-- new card controls/form -->
+<aside id="card-form" class="col-md-2 card-form">
   <form>
-    <h4> new / edit:</h4>
     <fieldset>
       <label> 1<sup>st</sup> language: </label>
     <select id="to-translate">
       <option ng-repeat="lang in langChoices" ng-selected="$index == 6"> {{ lang }} </option>
       </select>
         </fieldset>
-        <input type="text" class="form-control input-lg text-center" placeholder="word to translate" ng-model="formData.original">
+        <input type="text" class="form-control input-md" placeholder="word to translate" ng-model="formData.original">
     <fieldset>
       <label> 2<sup>nd</sup> language: </label>
         <select id="translated">
           <option ng-repeat = "lang in langChoices" ng-selected="$index == 36"> {{ lang }} </option>
         </select>
     </fieldset>
-        <input type="text" class="form-control input-lg text-center" placeholder="translation" ng-model="formData.translated">
+        <input type="text" class="form-control input-md" placeholder="translation" ng-model="formData.translated">
         <fieldset>
           <label> add an image:</label>
     </fieldset>
-        <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
+        <input type="text" class="form-control input-md" placeholder="image link" ng-model="formData.src">
     <fieldset>
         <label> set membership:</label>
     </fieldset>
-      <input type="text" class="form-control input-lg text-center" placeholder="set membership" ng-model="formData.cardSet">
+      <input type="text" class="form-control input-md" placeholder="set membership" ng-model="formData.cardSet">
     <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
   </form>
-  <!-- <div class="instructions">
-    <h4>Instructions</h4>
-      <ul>
-        <li>use the form to add new cards to a set.</li>
-        <li>double click on a card to flip it.</li>
-        <li>navigate through sets below.</li>
-        <li> all sets are currently public.</li>
-      </ul>
-  </div> -->
-  <!-- <nav class="navigate">
-    <h4>Jump to:</h4>
-    <ul>
-
-    </ul>
-  </nav> -->
 </aside>
-<div id="card-list" class="card-list col-md-9">
-  <div class="flashcard col-md-3" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "{{card.src}}">
+
+<div id="card-list" class="card-list col-md-10">
+  <div class="flashcard col-md-3" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
     <div class="card-control">
       <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
       <button class="btn btn-md btn-default edit" ng-click="editCard(card)">Edit</button>
     </div>
-      <p> <span> {{ card.text}} </span></p>
-      <!-- <video class = "card-video" src="./vid/{{card.src}}" autoplay loop muted !controls></video> -->
+      <p ng-click="flip(card, card._id)"> <span> {{ card.text}} </span></p>
   </div>
 </div>

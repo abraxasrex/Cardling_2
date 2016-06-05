@@ -1,40 +1,46 @@
 
-/*46B29D
-F0CA4D
-E37B40*/
-
+/* high level elements */
 html {
   overflow-y:scroll;
 }
-body{
+body {
   min-height: 1000px;
   font-family: 'Varela Round', sans-serif;
   background-color: Gainsboro;
 }
-.container{
+.container {
   margin: 20px 20px;
   width: 100%;
   max-width: 1500px;
-  margin-left: 0px;
-  padding-left: 0px;
 }
-.card-list{
-  float: left;
-  padding-left: 125px;
+.card-form {
+  float: right;
 }
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 auto;
+}
+nav, nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* cards */
 .front-flip {
   transform: rotate3d(0, 1, 0, 360deg);
 }
-
 .back-flip {
   transform: rotate3d(0, 1, 0, 0deg);
 }
-
 .flashcard {
   margin: 10px;
-  padding: 5px;
-  border: 2px inset  #324D5C;
-  transition: all 1s;
+  border: 1px inset #324D5C;
+  transition: all 1.5s;
   text-align: center;
   height: 225px;
   line-height: 225px;
@@ -42,192 +48,86 @@ body{
   background-position:top left;
   overflow: hidden;
   padding:0px;
-
 }
-.flashcard button{
-  border-radius: 0;
-}
-
  .flashcard p {
-   padding: 0;
-   margin: 0;
    color: black;
    vertical-align: middle;
-   text-align: left;
-   font-size: 32px;
+   font-size: 28px;
    z-index: 1;
-   -webkit-user-select: none;  /* Chrome all / Safari all */
-   -moz-user-select: none;     /* Firefox all */
-   -ms-user-select: none;      /* IE 10+ */
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
    user-select: none;
  }
-.flashcard p span{
-  background-color: white;
-  border-style: solid;
-  text-align: left;
-}
- .card-form {
-   float: right;
- }
 
- .flashcard .delete{
+.flashcard p span {
+  background-color: white;
+  border: 0.5px solid black;
+}
+ .edit, .delete {
    color: black;
    float: left;
+   z-index:2;
+   border: 0.1px solid black;
  }
 
- .flashcard .edit {
-   float: left;
- }
-
-.card-control {
-  z-index: 1;
+/* login/register */
+.jumbotron {
+  background-color: #DE5B49;
+  border: 15px solid #324D5C;
+  font-size: 25px;
 }
-.card-video {
-  height: 100%;
-  z-index: -1;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.card-video > video {
-  width: 100%;
-    background-color: #E37B40;
-}
-
-aside h4{
-  text-align:center;
-}
-
-.navigate ul{
-  list-style-type: none;
-  font-size: 24px;
-  width: 100%;
-  margin: 0px 0px;
-  padding: 0px 0px;
-  text-align: center;
-}
-
-.navigate ul li{
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  color: white;
-  background-color:#324D5C;
-}
-.instructions, .navigate {
-  border-style: solid;
-  border-width: thin;
-  margin: 10px auto;
-}
-
-aside{
-  /*border-style: solid;
-  border-width: thin;*/
-}
-
 .jumbotron h1 {
   width: 50%;
   margin: 0 auto;
   font-family: 'Roboto Condensed', sans-serif;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #324D5C;
   font-size: 84px;
-  color: white;
-  text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-     -2px 2px 0 #000,
-      2px 2px 0 #000;
-}
-.jumbotron{
-  background-color: #DE5B49;
-  border: 20px inset #324D5C;
 }
 
-nav, nav ul {
-  display: flex;
-  justify-content: space-around;
-}
-.navbar-default{
-    background-color: rgba(0,0,0,0);
-}
-nav ul{
-  width: 75%;
-}
-
-.navbar-header, .navbar-nav li{
-  background-color: #DE5B49;
-  border: 5px solid #324D5C;
-  height: 100%;
-  font-size: 24px;
-  padding: 0 auto;
-  margin: 0 auto;
-  text-align: center;
-}
-
-nav span{
-  line-height:100%;
-  vertical-align: middle;
-}
-
-.navbar-header {
-  height: 86px;
-  width: 25%;
-}
-
-form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-}
-
-
-
-fieldset {
-  display: inline-block;
-  text-align: center;
-}
-
-form .input-lg {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-}
-
-.login-submit{
-  margin-bottom: 10px;
-}
-form select {
-  width: 25%;
-}
-
+/* forms */
 input{
   width: 100%;
 }
-
-.edit-window{
-  position: absolute;
-  z-index: 5;
-  top:0px;
-  left:0px;
-  max-width:250px;
-  max-height: 350px;
+label{
+  font-weight: normal;
+}
+aside form{
+  border: 0.5px solid black;
+  padding: 5px;
+}
+form > *{
+  margin: 2.5px;
+}
+.btn-primary {
+  background:#324D5C;
+}
+form select {
+  width: 33%;
 }
 
-.editable-card{
-  max-width:250px;
-  max-height: 350px;
+/* nav */
+nav ul{
+  width: 66%;
 }
-
-.nav label{
+.navbar-header, nav li{
+  background-color: #DE5B49;
+  border: 1px solid black;
   text-align: center;
-  width: 100%;
-  height:25%;
+}
+nav li{
+  height: 71px;
+  line-height: 71px;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.nav-search{
+  line-height:25px;
+}
+nav a{
+  color:black;
+}
+nav h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 36px;
 }

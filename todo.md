@@ -16,18 +16,18 @@
 
 3. Stretch Goals 1
 
-- add about me page
-
 - languages.json in server
 
-- DRY: components  
+- remove bootstrap
 
-- DRY: search functionality  
+- DRY component-based architecture  
 
 - nested lists by set  
 
 
 4. Stretch goals  2
+
+- add about me page
 
 - SASS  
 
