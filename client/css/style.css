@@ -45,7 +45,6 @@ nav, nav ul {
   margin: 10px;
   border: 1px inset #324D5C;
   transition: all 1.5s;
-  text-align: center;
   height: 225px;
   line-height: 225px;
   background-size: cover;
@@ -54,6 +53,7 @@ nav, nav ul {
   padding:0px;
 }
  .flashcard p {
+   float: left;
    color: black;
    vertical-align: middle;
    font-size: 28px;
