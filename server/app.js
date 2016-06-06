@@ -3,7 +3,8 @@ var express = require('express');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var expressSession = require('express-session');
+// var expressSession = require('express-session');
+var cookieSession = require('cookie-session')
 var hash = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var path = require('path');
@@ -28,11 +29,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('express-session')({
-    secret: 'shanky',
-    resave: false,
-    saveUninitialized: false
-}));
+// app.use(require('express-session')({
+//     secret: 'shanky',
+//     resave: false,
+//     saveUninitialized: false
+// }));
+app.use(cookieSession({
+  name: 'test_session',
+  keys: ['key1', 'key2']
+}))
 app.use(passport.initialize());
 app.use(passport.session());
 
