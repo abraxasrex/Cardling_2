@@ -7,13 +7,9 @@ angular.module('cardLing').controller('mainController',
   //init form data
   $scope.formData = {};
   $scope.formData.edit = null;
+
   //toggle new/edit text
   $scope.submitText = "Add card";
-
-  //get user information
-  $http.get("/user/currentUser").success(function(data) {
-      $scope.formData.owner = data;
-  });
 
 // load language dropdown
   $scope.langChoices = [];
@@ -27,8 +23,11 @@ angular.module('cardLing').controller('mainController',
     console.log('getting lang json err: ', err);
   });
 
-/// card text render helper
+/// card text render helper, identify current user  
   function initCards(){
+    $http.get("/user/currentUser").success(function(data) {
+        $scope.formData.owner = data;
+    });
      if($scope.cards) {
        $scope.cards.forEach(function(card) {
           if(!card.text) {

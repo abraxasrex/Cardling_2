@@ -51,8 +51,8 @@
 <div id="card-list" class="card-list">
   <div class="flashcard col-md-2" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
     <div class="card-control">
-      <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
-      <button class="btn btn-md btn-default edit" ng-click="editCard(card)">Edit</button>
+      <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)" ng-show="formData.owner===card.owner">X</button>
+      <button class="btn btn-md btn-default edit" ng-click="editCard(card)" ng-show="formData.owner===card.owner">Edit</button>
     </div>
       <p ng-click="flip(card, card._id)"> <span> {{ card.text}} </span></p>
   </div>

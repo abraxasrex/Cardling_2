@@ -1,32 +1,25 @@
 
-
 ## Todo
 
-1.  Deployment  
 
-- deployment
-
-- mongolab  
-
-
-2. Stretch Goals 1
-
-- languages.json in server
+1. Stretch Goals 1
 
 - remove bootstrap
 
 - DRY component-based architecture  
 
-- nested lists by set  
+- nested lists by set ; headers showing view details 
+
+- third party auth  
 
 
 3. Stretch goals  2
 
+- languages.json in server
+
 - add about me page
 
 - SASS  
-
-- third party auth  
 
 - client-side input validation UX  
 

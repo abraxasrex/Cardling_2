@@ -13,14 +13,14 @@ var app = express();
 var User = require('./models/user.js');
 
 //db connection
-// mongoose.connect('mongodb://localhost/cards', function(err, db){
-//   if(!err) {
-//     console.log('mongoose is connected');
-//   } else {
-//     console.log(err);
-//   }
-// });
-mongoose.connect('mongodb://heroku_x5cb07d7:ahnbodvajj0op1dt53fd2j9g59@ds043002.mlab.com:43002/heroku_x5cb07d7')
+mongoose.connect('mongodb://localhost/cards', function(err, db){
+  if(!err) {
+    console.log('mongoose is connected');
+  } else {
+    console.log(err);
+  }
+});
+//mongoose.connect('mongodb://heroku_x5cb07d7:ahnbodvajj0op1dt53fd2j9g59@ds043002.mlab.com:43002/heroku_x5cb07d7')
 
 // middleware
 app.use(express.static(path.join(__dirname, '../client')));
