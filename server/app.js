@@ -21,7 +21,7 @@ var User = require('./models/user.js');
 //     console.log(err);
 //   }
 // });
-mongoose.connect(process.env.MONGOLAB_URI)
+mongoose.connect('mongodb://heroku_x5cb07d7:ahnbodvajj0op1dt53fd2j9g59@ds043002.mlab.com:43002/heroku_x5cb07d7')
 
 // middleware
 app.use(express.static(path.join(__dirname, '../client')));
