@@ -31,7 +31,6 @@ cardLing.run(function ($rootScope, $location, $route, AuthService) {
     function (event, next, current) {
       AuthService.getUserStatus()
       .then(function(){
-        // handler for undefined next.access error
         if(next.access){
           if (next.access.restricted && !AuthService.isLoggedIn()){
             $location.path('/login');

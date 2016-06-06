@@ -68,7 +68,6 @@ router.get('/currentUser', function(req, res) {
                 console.log('user undefined!')
             } else {
                 res.json(req.user.username);
-                console.log('username:', req.user.username);
             }
         });
 

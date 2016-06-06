@@ -2,19 +2,14 @@
 
 ## Todo
 
-1.  MVP  
-
-- general UI/UX fixes  
-
-
-2.  Deployment  
+1.  Deployment  
 
 - deployment
 
 - mongolab  
 
 
-3. Stretch Goals 1
+2. Stretch Goals 1
 
 - languages.json in server
 
@@ -25,7 +20,7 @@
 - nested lists by set  
 
 
-4. Stretch goals  2
+3. Stretch goals  2
 
 - add about me page
 

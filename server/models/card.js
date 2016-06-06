@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-//set schema
 var Schema = mongoose.Schema;
 var cardSchema = new Schema({
   original: {
@@ -24,5 +23,4 @@ var cardSchema = new Schema({
   }
 });
 
-//export model
 module.exports = mongoose.model('Card', cardSchema);

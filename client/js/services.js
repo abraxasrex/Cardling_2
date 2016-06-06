@@ -1,7 +1,7 @@
+// auth service from Michael Herman's MEAN authentication tutorial: http://mherman.org/blog/2015/07/02/handling-user-authentication-with-the-mean-stack/#.V1SyDkorI8o
 angular.module('cardLing').factory('AuthService',
   ['$q', '$timeout', '$http',
   function ($q, $timeout, $http) {
-
     var user = null;
     var currentUser = null;
     return ({
@@ -9,8 +9,7 @@ angular.module('cardLing').factory('AuthService',
       getUserStatus: getUserStatus,
       login: login,
       logout: logout,
-      register: register,
-      getCurrentUser: getCurrentUser
+      register: register
     });
 
     function isLoggedIn() {
@@ -21,13 +20,8 @@ angular.module('cardLing').factory('AuthService',
       }
     }
 
-    function getCurrentUser(){
-      return currentUser;
-    }
-
     function getUserStatus() {
       return $http.get('/user/status')
-
       .success(function (data) {
         if(data.status){
           user = true;
@@ -35,14 +29,12 @@ angular.module('cardLing').factory('AuthService',
           user = false;
         }
       })
-
       .error(function (data) {
         user = false;
       });
     }
 
     function login(username, password) {
-
       var deferred = $q.defer();
 
       $http.post('/user/login',
@@ -61,17 +53,13 @@ angular.module('cardLing').factory('AuthService',
           user = false;
           deferred.reject();
         });
-
       return deferred.promise;
-
     }
 
     function logout() {
-
       var deferred = $q.defer();
 
       $http.get('/user/logout')
-
         .success(function (data) {
           currentUser = null;
           user = false;
@@ -81,18 +69,14 @@ angular.module('cardLing').factory('AuthService',
           user = false;
           deferred.reject();
         });
-
       return deferred.promise;
-
     }
 
     function register(username, password) {
-
       var deferred = $q.defer();
 
       $http.post('/user/register',
         {username: username, password: password})
-
         .success(function (data, status) {
           currentUser = username;
           if(status === 200 && data.status){
@@ -104,9 +88,6 @@ angular.module('cardLing').factory('AuthService',
         .error(function (data) {
           deferred.reject();
         });
-
       return deferred.promise;
-
     }
-
 }]);
