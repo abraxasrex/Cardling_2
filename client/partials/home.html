@@ -20,7 +20,7 @@
 </nav>
 
 <!-- new card controls/form -->
-<aside id="card-form" class="col-md-2 card-form">
+<aside id="card-form" class="card-form col-md-2">
   <form>
     <fieldset>
       <label> 1<sup>st</sup> language: </label>
@@ -48,8 +48,8 @@
   </form>
 </aside>
 
-<div id="card-list" class="card-list col-md-10">
-  <div class="flashcard col-md-3" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
+<div id="card-list" class="card-list">
+  <div class="flashcard col-md-2" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
     <div class="card-control">
       <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
       <button class="btn btn-md btn-default edit" ng-click="editCard(card)">Edit</button>

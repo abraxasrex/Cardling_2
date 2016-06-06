@@ -2,19 +2,23 @@
 /* high level elements */
 html {
   overflow-y:scroll;
+  min-height: 725px;
 }
 body {
-  min-height: 1000px;
   font-family: 'Varela Round', sans-serif;
   background-color: Gainsboro;
+  margin: 0 auto;
 }
-.container {
-  margin: 20px 20px;
+.view-container {
+  margin: 5px 5px;
+  padding: 5px 5px;
+}
+.col-md-12 {
   width: 100%;
-  max-width: 1500px;
 }
 .card-form {
-  float: right;
+  float: left;
+  margin-right: 28px;
 }
 form {
   height: 100%;
@@ -103,7 +107,7 @@ form > *{
   background:#324D5C;
 }
 form select {
-  width: 33%;
+  width: 75%;
 }
 
 /* nav */
