@@ -8,11 +8,11 @@
     <li class="col-md-2" ng-click="getAllCards()">all cards</li>
     <li class="col-md-2" ng-click="getMyCards()">my cards</li>
     <li class="col-md-4 nav-search">
-      <label for="set-search" ng-click="getCardSet()" >find set</label>
+      <button class="btn btn-md btn-primary" ng-click="getCardSet()">Find set</button>
       <input name="set-search" type="text" ng-model="formData.targetSetRoute">
   </li>
   <li class="col-md-4 nav-search">
-    <label for="card-search" ng-click="getMatchingCards()">find by term</label>
+    <button class="btn btn-md btn-primary" ng-click="getMatchingCards()">Find by term</button>
     <input name="card-search" type="text" ng-model="formData.targetCard">
   </li>
       <a ng-click='logout()'><li>Logout</li></a>

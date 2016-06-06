@@ -90,17 +90,17 @@ nav, nav ul {
 }
 
 /* forms */
-input{
+input {
   width: 100%;
 }
-label{
+label {
   font-weight: normal;
 }
-aside form{
+aside form {
   border: 0.5px solid black;
   padding: 5px;
 }
-form > *{
+form > * {
   margin: 2.5px;
 }
 .btn-primary {
@@ -111,24 +111,24 @@ form select {
 }
 
 /* nav */
-nav ul{
+nav ul {
   width: 66%;
 }
-.navbar-header, nav li{
+.navbar-header, nav li {
   background-color: #DE5B49;
   border: 1px solid black;
   text-align: center;
 }
-nav li{
+nav li {
   height: 71px;
   line-height: 71px;
   vertical-align: middle;
   font-size: 18px;
 }
-.nav-search{
+.nav-search {
   line-height:25px;
 }
-nav a{
+nav a {
   color:black;
 }
 nav h1 {
