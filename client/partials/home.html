@@ -1,17 +1,17 @@
 
 <!-- navigation -->
-<nav class="navbar col-md-12">
-  <div class="navbar-header col-md-4" ng-click="getAllMyCards()">
+<nav class="navbar col-md-12 col-sm-12">
+  <div class="navbar-header col-md-4 col-sm-2" ng-click="getAllMyCards()">
     <h1>Cardling</h1>
   </div>
-  <ul class="nav navbar-nav col-md-8">
-    <li class="col-md-2" ng-click="getAllCards()">all cards</li>
-    <li class="col-md-2" ng-click="getMyCards()">my cards</li>
-    <li class="col-md-4 nav-search">
+  <ul class="nav navbar-nav col-sm-10">
+    <li class="col-md-2 col-sm-2" ng-click="getAllCards()">all cards</li>
+    <li class="col-md-2 col-sm-2" ng-click="getMyCards()">my cards</li>
+    <li class="col-md-4 col-sm-3 nav-search">
       <button class="btn btn-md btn-primary" ng-click="getCardSet()">Find set</button>
       <input name="set-search" type="text" ng-model="formData.targetSetRoute">
   </li>
-  <li class="col-md-4 nav-search">
+  <li class="col-md-4 col-sm-3 nav-search">
     <button class="btn btn-md btn-primary" ng-click="getMatchingCards()">Find by term</button>
     <input name="card-search" type="text" ng-model="formData.targetCard">
   </li>
@@ -20,7 +20,7 @@
 </nav>
 
 <!-- new card controls/form -->
-<aside id="card-form" class="card-form col-md-2">
+<aside id="card-form" class="card-form col-md-2 col-sm-4">
   <form>
     <fieldset>
       <label> 1<sup>st</sup> language: </label>
@@ -49,7 +49,7 @@
 </aside>
 
 <div id="card-list" class="card-list">
-  <div class="flashcard col-md-2" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
+  <div class="flashcard col-md-2 col-sm-3" ng-repeat="card in cards" ng-class = "card._id" back-img = "{{card.src}}">
     <div class="card-control">
       <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)" ng-show="formData.owner===card.owner">X</button>
       <button class="btn btn-md btn-default edit" ng-click="editCard(card)" ng-show="formData.owner===card.owner">Edit</button>
