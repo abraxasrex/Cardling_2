@@ -4,14 +4,13 @@ angular.module('cardLing').controller('mainController',
   ['$scope', '$location', 'AuthService', '$http',
   function ($scope, $location, AuthService, $http) {
 
-  //init form data
-  $scope.formData = {};
-  $scope.formData.edit = null;
+  $scope.formData = {
+    edit: null
+  };
+  //$scope.formData.edit = null;
 
-  //toggle new/edit text
   $scope.submitText = "Add card";
 
-// load language dropdown
   $scope.langChoices = [];
   $scope.eng = 'English       (English)';
 
@@ -23,7 +22,7 @@ angular.module('cardLing').controller('mainController',
     console.log('getting lang json err: ', err);
   });
 
-/// card text render helper, identify current user  
+/// card text render helper, identify current user
   function initCards(){
     $http.get("/user/currentUser").success(function(data) {
         $scope.formData.owner = data;
