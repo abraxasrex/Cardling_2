@@ -1,7 +1,6 @@
 var Card = require('../models/card.js');
 var path = require('path');
 
-/// Create, Update, and Delete
 function makeCard(req, res) {
   Card.create({
     original: req.body.original.trim(),

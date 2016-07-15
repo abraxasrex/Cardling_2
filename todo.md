@@ -1,33 +1,27 @@
 
 ## Todo
 
-
-1. Stretch Goals 1
-
-- remove bootstrap
-
-- DRY component-based architecture  
-
-- nested lists by set ; headers showing view details 
-
 - third party auth  
 
+- nested lists by set; headers showing view details
 
-3. Stretch goals  2
+- font sizing fix  
 
-- languages.json in server
+- component-based architecture  
 
-- add about me page
+- remove vanilla dom query    
+
+
+stretch:  
+
+- ionic packaging  
+
+- get mobile user media - pictures  
+
+- add about me page  
 
 - SASS  
 
 - client-side input validation UX  
 
 - shareable routes to one's set  
-
-
-4.  stretch goals 3:  
-
-- ionic packaging
-
-- get mobile user media - pictures  

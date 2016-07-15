@@ -22,7 +22,6 @@ angular.module('cardLing').controller('mainController',
     console.log('getting lang json err: ', err);
   });
 
-/// card text render helper, identify current user
   function initCards(){
     $http.get("/user/currentUser").success(function(data) {
         $scope.formData.owner = data;
@@ -36,7 +35,6 @@ angular.module('cardLing').controller('mainController',
      }
   }
 
-  //logout function
   $scope.logout = function () {
     AuthService.logout()
       .then(function () {
@@ -44,7 +42,6 @@ angular.module('cardLing').controller('mainController',
       });
   };
 
-/// the R in CRUD //
   $scope.getAllCards = function(){
     $http.get('/api/cards').success(function(data) {
       $scope.cards = data;
@@ -81,7 +78,6 @@ angular.module('cardLing').controller('mainController',
     });
   }
 
-/// Create, Update, and Delete requests
   $scope.submitCard = function() {
     $http.post('/api/cards', $scope.formData).success(function(data) {
       $scope.formData = {};
@@ -101,7 +97,6 @@ angular.module('cardLing').controller('mainController',
     });
   };
 
-  // UI/UX control
   $scope.editCard = function(card) {
     if($scope.formData.edit === card._id) {
       $scope.formData.edit = null;
@@ -141,7 +136,6 @@ angular.module('cardLing').controller('mainController',
     }
   };
 
-  //init cards
   $scope.getAllCards();
 }]);
 
