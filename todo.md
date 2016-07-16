@@ -3,9 +3,9 @@
 
 - third party auth  
 
-- nested lists by set; headers showing view details
+- font sizing fix: ems and rems  
 
-- font sizing fix  
+- nested lists by set; headers showing view details  
 
 - component-based architecture  
 
